@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ app_name }}</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!-- Vue 3 (CDN) -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  </head>
+  <body>
+    <header class="container">
+      <h1>{{ app_name }}</h1>
+      <p class="muted">Локальный поиск по PDF/Markdown · FTS5</p>
+    </header>
+
+    <main class="container">
+      {% raw %}
+      <div id="app" v-cloak>
+        <div class="search-box">
+          <input
+            type="search"
+            placeholder="Введите запрос…"
+            v-model="query"
+            @keyup.enter="doSearch"
+            autofocus
+          />
+          <button @click="doSearch" :disabled="loading">Искать</button>
+        </div>
+
+        <div class="status" v-if="error">
+          <span class="error">[[ error ]]</span>
+        </div>
+        <div class="status" v-else-if="loading">
+          <span>Идёт поиск…</span>
+        </div>
+        <div class="status" v-else-if="!results.length && searched">
+          <span>Ничего не найдено</span>
+        </div>
+
+        <ol class="results" v-if="results.length">
+          <li v-for="r in results" :key="r.page_id">
+            <div class="meta">Документ #[[ r.document_id ]] · Стр. [[ r.page_no ]]</div>
+            <div class="snippet" v-html="r.snippet"></div>
+          </li>
+        </ol>
+      </div>
+      {% endraw %}
+    </main>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>

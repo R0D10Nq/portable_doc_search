@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.dist/
+build/
+
+# Envs
+.venv/
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Project data
+var/db/*.db
+var/storage/
+
+# Coverage / reports
+.coverage*
+htmlcov/
+pytestcache/
+
+# Misc
+.DS_Store
+Thumbs.db
