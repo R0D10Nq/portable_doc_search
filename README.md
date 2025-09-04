@@ -19,14 +19,14 @@
 
 ## 🛠 Технологический стек
 
-**Бэкенд:**
+**Backend:**
 - Python 3.12+
 - FastAPI + Uvicorn
 - SQLAlchemy 2.x
 - SQLite FTS5
 - Pydantic v2
 
-**Фронтенд:**
+**Frontend:**
 - Vue.js 3 (CDN)
 - Jinja2 шаблоны
 - Современные CSS/JavaScript
@@ -36,6 +36,13 @@
 - Ruff (линтинг)
 - mypy (проверка типов)
 - pytest (тестирование)
+
+**Поисковые технологии:**
+- **SQLite FTS5** с BM25 ranking
+- **PDF text extraction** pipeline
+- **Vue.js frontend** (CDN-based, no build)
+- **CLI tools** с Typer
+- **JWT authentication** с HTTP-only cookies
 
 ## 🚀 Быстрый старт
 
